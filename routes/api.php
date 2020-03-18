@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('candidates', 'CandidateController@index');
+Route::get('candidates/{id}', 'CandidateController@show');
+Route::post('candidates', 'CandidateController@store');
+Route::put('candidates/{id}', 'CandidateController@update');
+Route::delete('candidates/{id}', 'CandidateController@destroy');
